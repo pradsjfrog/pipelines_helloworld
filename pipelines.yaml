@@ -11,7 +11,7 @@ pipelines:
     configuration:
       environmentVariables:
         readOnly:
-          MY_MESSAGE: '"Hello Pipelines 2!"'
+          MY_MESSAGE: '"Hello Pipelines 3!"'
     steps:
       - name: step_1
         type: Bash
