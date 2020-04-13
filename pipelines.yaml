@@ -22,7 +22,7 @@ pipelines:
             - name: ArtifactoryIntegration
         execution:
           onExecute:
-            - jfrog rt docker-pull http://35.195.110.26:8082/docker-remote/mariadb:10.2.23 docker-remote
+            - jfrog rt docker-pull http://34.77.95.84:8082/docker-remote/mariadb:10.2.23 docker-remote
             - echo $MY_MESSAGE
             - echo "Running $pipeline_name | $step_name on node ID $step_node_id"
             - add_run_variables current_runid=$run_id
