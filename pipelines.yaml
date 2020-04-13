@@ -26,10 +26,11 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: myAppRepo
+            - name: mariadbtestRepo
             - name: mariadbinit
           integrations:
             - name: ArtifactoryIntegration
         execution:
           onExecute:
             # jfrog rt docker-pull 34.77.95.84:8082/docker-remote/mariadb:10.2.23 docker-remote
+            - docker images
