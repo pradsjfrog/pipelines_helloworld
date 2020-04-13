@@ -1,5 +1,5 @@
 resources:
-  - name: myAppRepo
+  - name: mariadbtestRepo
     type: GitRepo
     configuration:
       gitProvider: PradnyaGithub               # Change to your integration
@@ -13,10 +13,10 @@ resources:
       registry: ArtifactoryIntegration
       imageName: 34.77.95.84:8082/docker-remote/mariadb
       imageTag: 10.2.23
-      
+      autoPull: true #default
       
 pipelines:
-  - name: pipeline_hello_world
+  - name: pipeline_mariadbtest
     configuration:
       environmentVariables:
         readOnly:
