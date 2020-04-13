@@ -13,7 +13,7 @@ resources:
       registry: ArtifactoryIntegration
       imageName: 34.77.95.84:8082/docker-remote/mariadb
       imageTag: 10.2.23
-      autoPull: true #default
+      autoPull: false 
       
 pipelines:
   - name: pipeline_mariadbtest
@@ -32,5 +32,6 @@ pipelines:
             - name: ArtifactoryIntegration
         execution:
           onExecute:
-            # jfrog rt docker-pull 34.77.95.84:8082/docker-remote/mariadb:10.2.23 docker-remote
+            # - jfrog rt docker-pull 34.77.95.84:8082/docker-remote/mariadb:10.2.23 docker-remote
+            - jfrog rt docker-pull 34.77.95.84:8082/docker-remote/mariadb:10.2.23 docker-remote --build-name=pipeline_mariadbtest --build-number=1
             - docker images
