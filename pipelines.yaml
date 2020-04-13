@@ -18,8 +18,11 @@ pipelines:
         configuration:
           inputResources:
             - name: myAppRepo
+          integrations:
+            - name: ArtifactoryIntegration
         execution:
           onExecute:
+            - jfrog rt docker-pull mariadb:10.2.23 docker-remote
             - echo $MY_MESSAGE
             - echo "Running $pipeline_name | $step_name on node ID $step_node_id"
             - add_run_variables current_runid=$run_id
