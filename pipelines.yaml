@@ -13,7 +13,7 @@ resources:
       registry: ArtifactoryIntegration
       imageName: 34.77.95.84:8082/docker-remote/mariadb
       imageTag: 10.2.23
-      autoPull: false 
+      autoPull: false #default 
       
 pipelines:
   - name: pipeline_mariadbtest
@@ -32,6 +32,9 @@ pipelines:
             - name: ArtifactoryIntegration
         execution:
           onExecute:
+            - wget -nv https://api.bintray.com/content/jfrog/jfrog-cli-go/1.35.3/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64 -O jfrog --no-check-certificate
+            - sudo chmod +x jfrog
+            - mv jfrog /usr/bin/jfrog
             # - jfrog rt docker-pull 34.77.95.84:8082/docker-remote/mariadb:10.2.23 docker-remote
-            - jfrog rt docker-pull 34.77.95.84:8082/docker-remote/mariadb:10.2.23 docker-remote
-            - docker images
+            - jfrog rt docker-pull 34.77.95.84:8082/docker-remote/mariadb:10.2.23 docker-remote --build-name=pipeline_mariadbtest --build-number=1
+            #- docker images
