@@ -38,4 +38,4 @@ pipelines:
             # - jfrog rt docker-pull 34.77.95.84:8082/docker-remote/mariadb:10.2.23 docker-remote
             - jfrog --version
             - jfrog rt docker-pull 34.77.95.84:8082/docker-remote/mariadb:10.2.23 docker-remote --build-name=pipeline_mariadbtest --build-number=1
-            #- docker images 
+            #- docker images  
