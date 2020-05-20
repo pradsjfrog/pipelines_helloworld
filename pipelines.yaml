@@ -4,6 +4,8 @@ resources:
     configuration:
       gitProvider: PradnyaGithub               # Change to your integration
       path: pradsjfrog/pipelines_helloworld                 # Change to your repo
+      branches: 
+        include: ^master$
       
       
 pipelines:
